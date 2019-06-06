@@ -24,10 +24,12 @@ export class Blog extends Component {
     ]
   }
 
+  // will return the current state of posts along with each post and their unique ids and information. 
   renderPosts = () => {
     return this.state.posts.map( post => <Post key={post.id} {...post} />)
   };
 
+  // will render a randomly generated id
   getId = () => {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
@@ -35,8 +37,11 @@ export class Blog extends Component {
   };
   
   addPost = (postData) => {
+    // this will take the postData object from the PostForm and will then pull out posts from the state array
     const { posts, } = this.state;
+    // this will then assign a randomly generated id to the postData object and spread the rest of the params (title and body) of the filled in form data
     const post = { id: this.getId(), ...postData, };
+    // this will reset the state of the posts object to include the new post, and spread the addition post information. 
     this.setState({ posts: [post, ...posts], });
   };
 

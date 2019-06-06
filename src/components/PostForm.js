@@ -15,15 +15,19 @@ export class PostForm extends Component {
   }
 
   handleSubmit = (e) => {
+    // will prevent the form from submitting when the page is rendered
     e.preventDefault(); 
+    // this will add the current state of the form to the prop in the blog page and will be the data that is passed into the addPost function to add the new post information to state. 
     this.props.add(this.state); 
+    // This will reset the title and body to their original state of being empty. 
     this.setState({title: "", body: ""})
   }
 
 
   render() {
+    // Want to call the handle submit on the entire form, not just an onclick on the button itself. 
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Group widths="equal">
           <Form.Input
             placeholder="title"
@@ -40,7 +44,7 @@ export class PostForm extends Component {
             value={this.state.body}
           />
         </Form.Group>
-        <Form.Button inverted color="green" fluid onClick={this.handleSubmit}>Submit</Form.Button>
+        <Form.Button inverted color="green" fluid>Submit</Form.Button>
       </Form>
     )
   }
