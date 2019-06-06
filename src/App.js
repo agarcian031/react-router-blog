@@ -4,8 +4,9 @@ import './App.css';
 import Home from './components/Home'
 import About from './components/About'
 import NoMatch from './components/NoMatch';
-import {Navbar, Container} from 'semantic-ui-react'
 import Navbar from './components/Navbar';
+import Blog from './components/Blog'
+import {Container} from 'semantic-ui-react'
 
 // will act as a routing station to other components instead of acting as the main page. 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
     <Switch>
     <Route exact path="/" component={Home}/>
     <Route exact path="/about" component={About}/>
+    <Route exact path="/blog" component={Blog}/>
     <Route component={NoMatch}/>
     </Switch>
     </Container>

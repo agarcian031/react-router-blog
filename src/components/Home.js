@@ -1,10 +1,14 @@
 import React from 'react'
+import {Header, Icon, Segment, Divider} from 'semantic-ui-react'
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <Segment padded raised color="blue">
+    <Header as="h1" textAlign="center">
+      Home
+    </Header>
+    <Divider/>
+    </Segment>
   )
 }
 

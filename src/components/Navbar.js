@@ -1,9 +1,13 @@
 import React from "react";
-import { Menu, } from "semantic-ui-react"
+import { Menu, Icon } from "semantic-ui-react"
 import { Link } from "react-router-dom"; 
 
-const NavBar = () => (
-  <Menu>
+const Navbar = () => (
+  <Menu inverted>
+    <Menu.Menu position="left">
+      <Icon name="blogger" size="big" color="teal" bordered/>
+    </Menu.Menu>
+    <Menu.Menu position="right">
     <Link to="/">
       <Menu.Item>
         Home
@@ -14,6 +18,12 @@ const NavBar = () => (
         About
       </Menu.Item>
     </Link>
+    <Link to="/blog">
+      <Menu.Item>
+        Blog
+      </Menu.Item>
+    </Link>
+    </Menu.Menu>
   </Menu>
 );
 
