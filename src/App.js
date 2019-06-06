@@ -12,7 +12,7 @@ import {Container} from 'semantic-ui-react'
 const App = () => (
   <Fragment>
     <Navbar/>
-    <Container>
+    <Container >
     <Switch>
     <Route exact path="/" component={Home}/>
     <Route exact path="/about" component={About}/>

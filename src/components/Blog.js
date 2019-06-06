@@ -26,7 +26,7 @@ export class Blog extends Component {
 
   // will return the current state of posts along with each post and their unique ids and information. 
   renderPosts = () => {
-    return this.state.posts.map( post => <Post key={post.id} {...post} />)
+    return this.state.posts.map( post => <Post key={post.id} {...post} edit={this.editPost} />)
   };
 
   // will render a randomly generated id
@@ -45,10 +45,20 @@ export class Blog extends Component {
     this.setState({ posts: [post, ...posts], });
   };
 
+  editPost = (postData) => {
+    const posts = this.state.posts.map( post => {
+      if (post.id === postData.id) 
+      return postData; 
+      return post; 
+
+    }); 
+    this.setState({posts, }); 
+  }
+
 
   render() {
     return (
-      <Segment raised padded color="blue">
+      <Segment raised padded color="grey" inverted>
       <Header as="h1" textAlign="center">Blog</Header>
       <Divider />
       <PostForm add={this.addPost} />
